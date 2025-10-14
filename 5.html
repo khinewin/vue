@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <div id="app">
+        <ul>
+            <li v-for="stu in students" :key="stu.id">
+                ID : {{stu.id}}, Name: {{stu.name}}, Email: {{stu.email}}
+            </li> <!-- v-bind:key , :key-->
+        </ul>
+    </div>
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <script>
+        const {createApp}=Vue;
+        createApp({          
+            data(){
+                return{
+                   students: [
+                        {id: 1, name: "Mg Mg", email: "mgmg@gmail.com"},
+                        {id:2, name:"Tun Tun", email: "tun@gmail.com"}
+                   ]
+                }
+            }
+        }).mount("#app");
+     </script>
+</body>
+</html>
+
