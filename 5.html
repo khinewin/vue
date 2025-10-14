@@ -7,6 +7,14 @@
 </head>
 <body>    
     <div id="app">
+        <form @submit.prevent="saveStudent">
+            <input type="text" placeholder="Name" v-model="name">
+            <br>
+            <input type="email" placeholder="E-mail" v-model="email">
+            <br>
+            <button type="submit">Save</button>
+        </form>
+        <hr>
         <ul>
             <li v-for="stu in students" :key="stu.id">
                 ID : {{stu.id}}, Name: {{stu.name}}, Email: {{stu.email}}
@@ -19,6 +27,15 @@
         const {createApp}=Vue;
         createApp({     
             methods:{
+                saveStudent(){
+                    const id=this.students.length + 1;
+                    const stu={
+                        id: id,
+                        name: this.name,
+                        email: this.email
+                    }
+                    this.students.push(stu);
+                },
                 deleteStu(id){
                     //console.log(id);
                     let stus=this.students.filter((f)=> f.id !=id);
@@ -27,6 +44,8 @@
             } ,   
             data(){
                 return{
+                    name: "",
+                    email:"",
                    students: [
                         {id: 1, name: "Mg Mg", email: "mgmg@gmail.com"},
                         {id:2, name:"Tun Tun", email: "tun@gmail.com"}
