@@ -10,13 +10,21 @@
         <ul>
             <li v-for="stu in students" :key="stu.id">
                 ID : {{stu.id}}, Name: {{stu.name}}, Email: {{stu.email}}
+                <button @click="deleteStu(stu.id)">Delete</button>
             </li> <!-- v-bind:key , :key-->
         </ul>
     </div>
      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
      <script>
         const {createApp}=Vue;
-        createApp({          
+        createApp({     
+            methods:{
+                deleteStu(id){
+                    //console.log(id);
+                    let stus=this.students.filter((f)=> f.id !=id);
+                    this.students=stus;
+                }
+            } ,   
             data(){
                 return{
                    students: [
