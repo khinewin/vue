@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <div v-if="isShow">it see me</div>
+        <button @click="toggleAvailable">Toggle Available</button>
+        <div >
+            <div v-if="isAvailable">Is Avaialbe</div>
+            <div v-else>is Not available</div>
+        </div>
+    </div>
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <script>
+        const {createApp}=Vue;
+        createApp({
+            methods:{
+                toggleAvailable(){
+                    this.isAvailable = !this.isAvailable;
+                   /* if(this.isAvailable == true){
+                        this.isAvailable=false;
+                    }else{
+                        this.isAvailable=true;
+                    }*/
+                }
+            },
+            data(){
+                return{
+                    isShow: true,
+                    isAvailable:true,
+                }
+            }
+        }).mount("#app");
+     </script>
+</body>
+</html>
