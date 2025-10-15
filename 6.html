@@ -15,6 +15,7 @@
 </head>
 <body>
     <div id="app">
+            <button @click="toggleError">Toggle Button</button>
             <div :class="[isError ? 'text-danger' : 'text-success' ]">Hello</div>
     </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -22,6 +23,11 @@
     //vue binding
     const {createApp}= Vue;
     createApp({
+        methods:{
+            toggleError(){
+                this.isError= !this.isError;
+            }
+        },
         data(){
             return{
                 isError:true,
