@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>Display Availabe Cars</h3>
+        <table>
+            <tr v-for="c in cars" :key="c.id">
+                <td>{{c.id}}</td>
+                <td>{{c.color}}</td>
+                <td>{{c.brand}}</td>
+            </tr>
+        </table>
+        <hr>
+        <h3>Red Cars</h3>
+        <table>
+            <tr v-for="c in redCars" :key="c.id">
+                <td>{{c.id}}</td>
+                <td>{{c.color}}</td>
+                <td>{{c.brand}}</td>
+            </tr>
+        </table>
+        <hr>
+        <h3>Green Cars</h3>
+         <table>
+            <tr v-for="c in greenCars" :key="c.id">
+                <td>{{c.id}}</td>
+                <td>{{c.color}}</td>
+                <td>{{c.brand}}</td>
+            </tr>
+        </table>
+    </div>    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const {createApp}=Vue;
+        createApp({
+            computed:{
+                redCars(){
+                    let red_cars=this.cars.filter((f)=>f.color=="red");
+                    return red_cars;
+                },
+                greenCars(){
+                    let green_cars=this.cars.filter((f)=>f.color=="green");
+                    return green_cars;
+                }
+            },
+            data(){
+                return{
+                    cars:[
+                        {id:1, color: "red", brand: "honda"},
+                        {id:2, color: "green", brand: "toyota"},
+                        {id:3, color: "red", brand: "honda"}
+                    ]
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>
