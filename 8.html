@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    </style>
+</head>
+<body>
+    <div id="app">
+           
+    </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    //vue binding
+    const {createApp}= Vue;
+    createApp({
+        mounted(){
+            this.callMe();
+            console.log("mounted");
+        },
+        beforeMount() {
+            console.log("Before Mount");
+        },
+        created(){
+            console.log("created");
+        },
+        beforeCreate() {
+            console.log("Before Create");
+        },
+        methods:{
+            callMe(){
+                console.log("it Call Me");
+            }
+        },
+        data(){
+            return{
+            
+            }
+        }
+    }).mount("#app");
+</script>
+</body>
+</html>
