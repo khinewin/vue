@@ -1,5 +1,5 @@
 <template>
-    <Welcome :message="msg"></Welcome>
+    <Welcome :message="msg" :info="moreInfo"></Welcome>
 </template>
 <script>
   import Welcome from "@/com/Welcome.vue"
@@ -9,7 +9,8 @@
     },
     data(){
       return{
-          msg: "Message From APP"
+          msg: "Message From APP",
+          moreInfo: "Hello More Info from App",
       }
     }
   }

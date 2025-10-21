@@ -1,8 +1,8 @@
 <template>
-    <h1>Welcome {{message}}</h1>
+    <h1>Welcome {{message}} {{info}}</h1>
 </template>
 <script>
     export default{
-        props:["message"]
+        props:["message", "info"]
     }
 </script>
