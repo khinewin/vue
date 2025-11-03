@@ -7,6 +7,12 @@
     <div class="container">
         <h1>Posts</h1>
 
+        <ul>
+            @foreach($all_posts as $p)
+                <li>{{$p}}</li>
+            @endforeach
+        </ul>
+
         @if($isA)
             <div>this is true so see me</div>
         @endif

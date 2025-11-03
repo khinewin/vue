@@ -8,6 +8,7 @@ class PostController extends Controller
 {
    function getPosts(){
         $isActive=false;
-        return view("posts")->with(["isA"=>$isActive]);
+        $all_posts=["first", "second", "third", "Fourth"];
+        return view("posts")->with(["isA"=>$isActive, "all_posts"=>$all_posts]);
     }
 }
