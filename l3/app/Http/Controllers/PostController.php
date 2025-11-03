@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
    function getPosts(){
-        return view("posts");
+        $isActive=false;
+        return view("posts")->with(["isA"=>$isActive]);
     }
 }
