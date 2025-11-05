@@ -9,7 +9,8 @@
         <div class="col-sm-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{ route('create.post') }}" method="post">
+                        @csrf
                         <div class="form-group mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input class="form-control" type="text" name="title" id="title">
