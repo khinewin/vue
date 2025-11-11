@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -11,9 +12,16 @@ class PostController extends Controller
         $content=$request->content;
 
         $request->validate([
-            "title"=>"required",
-            "content"=>'required'
+            "title"=>"required|max:100",
+            "content"=>'required|min:5'
         ]);
+
+        $p=new Post();
+        $p->title=$title;
+        $p->content=$content;
+        $p->save();
+
+        return redirect()->back()->with("msg", "The post has been created.");
 
         //Validation, Authentication, Authorization
         

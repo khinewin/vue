@@ -7,6 +7,9 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
+            @session("msg")
+                <div class="alert alert-success">{{session("msg")}}</div>
+            @endsession
             <div class="card shadow">
                 <div class="card-body">
                     <form action="{{ route('create.post') }}" method="post">
