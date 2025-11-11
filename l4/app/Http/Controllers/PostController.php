@@ -28,7 +28,9 @@ class PostController extends Controller
         
     }
     function getWelcome(){
-        $posts=Post::all(); //laravel eloquent
+        ///$posts=Post::all(); //laravel eloquent
+      //  $posts=Post::orderBy("id", "desc")->get();
+      $posts=Post::orderBy("id", 'desc')->paginate(2);
         return view("welcome")->with(['posts'=>$posts]);
     }
 }

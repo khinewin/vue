@@ -50,13 +50,14 @@
                                 <td>{{$p->id}}</td>
                                 <td>{{$p->title}}</td>
                                 <td>{{$p->content}}</td>
-                                <td>{{$p->created_at}}</td>
+                                <td>{{date("d/m/Y h:i:s A", strtotime($p->created_at))}}</td>
                                 <td>{{$p->updated_at}}</td>
                                 <td></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $posts->links() }}
                 </div>
             </div>
         </div>
