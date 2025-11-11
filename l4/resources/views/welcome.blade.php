@@ -14,10 +14,16 @@
                         <div class="form-group mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input class="form-control" type="text" name="title" id="title">
+                            @error("title")
+                                <div  class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label for="content" class="form-label">Content</label>
                             <textarea name="content" id="content" class="form-control"></textarea>
+                            @error("content")
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <button type="submit"  class="btn btn-primary">Save</button>
