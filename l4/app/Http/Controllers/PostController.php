@@ -22,11 +22,13 @@ class PostController extends Controller
         $p->save();
 
         return redirect()->back()->with("msg", "The post has been created.");
-
+        //return redirect()->route("welcome");
+        //return redirect("/");
         //Validation, Authentication, Authorization
         
     }
     function getWelcome(){
-        return view("welcome");
+        $posts=Post::all(); //laravel eloquent
+        return view("welcome")->with(['posts'=>$posts]);
     }
 }

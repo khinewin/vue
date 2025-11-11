@@ -1,15 +1,10 @@
 @extends("layouts.app")
-
 @section("title", "Welcome")
-
 @section("content")
-
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            @session("msg")
-                <div class="alert alert-success">{{session("msg")}}</div>
-            @endsession
+            @include("partials.message")
             <div class="card shadow">
                 <div class="card-body">
                     <form action="{{ route('create.post') }}" method="post">
@@ -36,7 +31,34 @@
             </div>
         </div>
         <div class="col-sm-8">
-
+            <div class="card shadow">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="fw-bold text-center table-primary">
+                                <td>ID</td>
+                                <td>Title</td>
+                                <td>Content</td>
+                                <td>Created Date</td>
+                                <td>Updated Date</td>
+                                <td>Actions</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($posts as $p)
+                            <tr>
+                                <td>{{$p->id}}</td>
+                                <td>{{$p->title}}</td>
+                                <td>{{$p->content}}</td>
+                                <td>{{$p->created_at}}</td>
+                                <td>{{$p->updated_at}}</td>
+                                <td></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
