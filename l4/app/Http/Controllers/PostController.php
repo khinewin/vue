@@ -7,6 +7,19 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    function updatePost(Request $r){
+        $id=$r->id;
+        $title=$r->title;
+        $content=$r->content;
+
+        $post=Post::whereId($id)->firstOrFail();
+        $post->title=$title;
+        $post->content=$content;
+        $post->update();
+
+        return redirect()->back()->with("msg", "The post has been updated.");
+
+    }
     function editPost($post_id){
         $post=Post::whereId($post_id)->firstOrFail();
         return view("edit")->with(["p"=>$post]);

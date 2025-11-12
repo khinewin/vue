@@ -7,7 +7,7 @@
             @include("partials.message")
             <div class="card shadow">
                 <div class="card-body">
-                    <form action="{{ route('create.post') }}" method="post">
+                    <form action="{{ route('update.post') }}" method="post">
                         <input type="hidden" value="{{$p->id}}" name="id">
                         @csrf
                         <div class="form-group mb-3">
