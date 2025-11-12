@@ -7,6 +7,10 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    function editPost($post_id){
+        $post=Post::whereId($post_id)->firstOrFail();
+        return view("edit")->with(["p"=>$post]);
+    }
     function deletePost($post_id){
         $post=Post::where("id", $post_id)->firstOrFail(); //first();
         $post->delete();

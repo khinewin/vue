@@ -53,7 +53,7 @@
                                 <td>{{date("d/m/Y h:i:s A", strtotime($p->created_at))}}</td>
                                 <td>{{$p->updated_at}}</td>
                                 <td>
-                                    <a href="" class="btn btn-light btn-sm">Edit</a>
+                                    <a href="{{ route("post.edit", ["post_id"=>$p->id]) }}" class="btn btn-light btn-sm">Edit</a>
                                     <a href="{{ route("post.delete", ["post_id"=>$p->id]) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
