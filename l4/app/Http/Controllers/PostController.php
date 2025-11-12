@@ -7,6 +7,11 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    function deletePost($post_id){
+        $post=Post::where("id", $post_id)->firstOrFail(); //first();
+        $post->delete();
+        return redirect()->back()->with("msg", "The selected post has been deleted.");
+    }
     function createPost(Request $request){
         $title=$request->title;
         $content=$request->content;
