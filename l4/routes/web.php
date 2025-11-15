@@ -2,10 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
 
-Route::get("/auth/login", function(){
-    return "I am login page";
-})->name("login");
+Route::get("/auth/login", [AuthController::class, "getLogin"])->name("login");
 
 Route::group(["middleware"=>"auth"], function(){
 
