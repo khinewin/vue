@@ -1,8 +1,6 @@
 @extends("layouts.app")
 @section("title", "Signin ")
-
 @section("content")
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-4">
@@ -24,6 +22,7 @@
                     </form>
                 </div>
             </div>
+            <div>Don't have an account ? <a href="{{ route("register") }}">Create now</a></div>
         </div>
     </div>
 </div>

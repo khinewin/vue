@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthController;
 
 Route::get("/auth/login", [AuthController::class, "getLogin"])->name("login");
+Route::get("/auth/register", [AuthController::class, 'getRegister'])->name("register");
 
 Route::group(["middleware"=>"auth"], function(){
 
