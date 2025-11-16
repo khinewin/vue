@@ -7,6 +7,12 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    function postLogin(Request $request){
+    $request->validate([
+                'email'=>'required|email',
+                'password'=>'required',
+            ]);
+    }
     function postRegister(Request $request){
         $request->validate([
             'name'=>'required',
