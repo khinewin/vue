@@ -10,6 +10,7 @@
             <div class="card shadow">
                 <div class="card-body">
                     <form action="{{ route('post.login') }}" method="post">
+                        @csrf
                         <div class="form-group mb-3">
                             <label for="email">E-mail</label>
                             <input type="email" name="email" class="form-control">

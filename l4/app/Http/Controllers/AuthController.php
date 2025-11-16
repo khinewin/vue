@@ -4,14 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 
 class AuthController extends Controller
 {
     function postLogin(Request $request){
-    $request->validate([
-                'email'=>'required|email',
+        $request->validate([
+                'email'=>'required|email|exists:users',
                 'password'=>'required',
             ]);
+
+          if(Auth::attempt(["email"=>$request->email, "password"=>$request->password])){
+            return redirect("/");
+          }else{
+                return redirect()->back()->withErrors([
+                    "password"=>"Password is invalid"
+                ]);
+          }
     }
     function postRegister(Request $request){
         $request->validate([
