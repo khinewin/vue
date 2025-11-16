@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-4">
-            <h1>Signin to project</h1>
+            <h1 class="text-center my-4">Our Fun Project</h1>
+            <div>Continued to your session.</div>
             <div class="card shadow">
                 <div class="card-body">
                     <form action="">
