@@ -8,6 +8,10 @@ use Auth;
 
 class AuthController extends Controller
 {
+    function getLogout(){
+        Auth::logout();
+        return redirect()->route("login");
+    }
     function postLogin(Request $request){
         $request->validate([
                 'email'=>'required|email|exists:users',

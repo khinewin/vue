@@ -11,6 +11,8 @@ Route::post("/auth/login", [AuthController::class, "postLogin"])->name("post.log
 
 Route::group(["middleware"=>"auth"], function(){
 
+    Route::get("/logout", [AuthController::class, 'getLogout'])->name("logout");
+
     Route::get("/", [PostController::class, "getWelcome"]);//->middleware("auth");
     Route::post("/create/post", [PostController::class, "createPost"])->name("create.post");
     Route::get("/delete/post/{post_id}", [PostController::class, "deletePost"])->name("post.delete");

@@ -9,7 +9,9 @@
 <body>
     @include("partials.navbar")
 
-    @yield('content')
+    <div class="mt-2">
+        @yield('content')
+    </div>
     
     <script src="{{ url('b/js/bootstrap.bundle.min.js') }}"></script>
 </body>
