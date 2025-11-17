@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url('b/css/bootstrap.min.css') }}">
 </head>
 <body>
+    @include("partials.navbar")
 
     @yield('content')
     
