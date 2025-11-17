@@ -11,6 +11,8 @@ Route::post("/auth/login", [AuthController::class, "postLogin"])->name("post.log
 
 Route::group(["middleware"=>"auth"], function(){
 
+    Route::get("/user/profile", [AuthController::class, "getProfile"])->name("profile");
+
     Route::get("/logout", [AuthController::class, 'getLogout'])->name("logout");
 
     Route::get("/", [PostController::class, "getWelcome"]);//->middleware("auth");

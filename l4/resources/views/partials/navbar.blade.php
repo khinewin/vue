@@ -12,7 +12,7 @@
             {{ Auth::user()->name }}
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profile</a></li>           
+            <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>           
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
           </ul>

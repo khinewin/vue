@@ -8,6 +8,9 @@ use Auth;
 
 class AuthController extends Controller
 {
+    function getProfile(){
+        return view("profile");
+    }
     function getLogout(){
         Auth::logout();
         return redirect()->route("login");
