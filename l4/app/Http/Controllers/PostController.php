@@ -32,15 +32,22 @@ class PostController extends Controller
 
         $request->validate([
             "title"=>"required|max:100",
-            "content"=>'required|min:5'
+            "content"=>'required|min:5',
+            "post_image"=>'required|mimes:jpg,png,jpeg'
         ]);
+
+        $file=$request->file("post_image");
+        $ext=$file->getClientOriginalExtension();
+        $img_name=date("dmyhis").".".$ext;
+      //  dd($img_name);
+        $file->move(public_path("images") , $img_name);
 
         $p=new Post();
         $p->title=$title;
         $p->content=$content;
-        $p->save();
+      //  $p->save();
 
-        return redirect()->back()->with("msg", "The post has been created.");
+     //   return redirect()->back()->with("msg", "The post has been created.");
         //return redirect()->route("welcome");
         //return redirect("/");
         //Validation, Authentication, Authorization
