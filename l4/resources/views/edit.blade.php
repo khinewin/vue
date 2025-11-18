@@ -7,9 +7,16 @@
             @include("partials.message")
             <div class="card shadow">
                 <div class="card-body">
-                    <form action="{{ route('update.post') }}" method="post">
+                    <form enctype="multipart/form-data" action="{{ route('update.post') }}" method="post">
                         <input type="hidden" value="{{$p->id}}" name="id">
                         @csrf
+                         <div class="form-group mb-3">
+                            <label for="post_image" class="form-label">Post Image</label>
+                            <input class="form-control" type="file" name="post_image" id="post_image">
+                            @error("post_image")
+                                <div  class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
                         <div class="form-group mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input value="{{$p->title}}" class="form-control" type="text" name="title" id="title">

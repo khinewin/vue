@@ -11,7 +11,25 @@ class PostController extends Controller
         $id=$r->id;
         $title=$r->title;
         $content=$r->content;
+
         $post=Post::whereId($id)->firstOrFail();
+
+        if($r->file("post_image")){
+
+            if(file_exists("images/$post->post_image")){
+                 unlink("images/$post->post_image");
+            }   
+
+            $file=$r->file("post_image");
+            $ext=$file->getClientOriginalExtension();
+            $img_name=date("dmyhis").".".$ext;
+            //  dd($img_name);
+            $file->move(public_path("images") , $img_name);
+            
+            $post->post_image=$img_name;
+
+        }
+
         $post->title=$title;
         $post->content=$content;
         $post->update();
@@ -23,6 +41,10 @@ class PostController extends Controller
     }
     function deletePost($post_id){
         $post=Post::where("id", $post_id)->firstOrFail(); //first();
+        if(file_exists("images/$post->post_image")){
+            unlink("images/$post->post_image");
+        }        
+
         $post->delete();
         return redirect()->back()->with("msg", "The selected post has been deleted.");
     }
@@ -45,9 +67,10 @@ class PostController extends Controller
         $p=new Post();
         $p->title=$title;
         $p->content=$content;
-      //  $p->save();
+        $p->post_image=$img_name;
+        $p->save();
 
-     //   return redirect()->back()->with("msg", "The post has been created.");
+        return redirect()->back()->with("msg", "The post has been created.");
         //return redirect()->route("welcome");
         //return redirect("/");
         //Validation, Authentication, Authorization

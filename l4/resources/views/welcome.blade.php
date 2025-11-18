@@ -44,6 +44,7 @@
                         <thead>
                             <tr class="fw-bold text-center table-primary">
                                 <td>ID</td>
+                                <td>Image</td>
                                 <td>Title</td>
                                 <td>Content</td>
                                 <td>Created Date</td>
@@ -55,6 +56,7 @@
                             @foreach($posts as $p)
                             <tr>
                                 <td>{{$p->id}}</td>
+                                <td><img src="{{ url("images/$p->post_image") }}" alt="No image." width="100px"></td>
                                 <td>{{$p->title}}</td>
                                 <td>{{$p->content}}</td>
                                 <td>{{date("d/m/Y h:i:s A", strtotime($p->created_at))}}</td>
